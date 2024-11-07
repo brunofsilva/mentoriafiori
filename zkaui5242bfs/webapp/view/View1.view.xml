@@ -1,0 +1,45 @@
+<mvc:View controllerName="mentoria.fiori.ka.zkaui5242bfs.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core" displayBlock="true">
+    <Page id="page" title="{i18n>title}">
+        <headerContent>
+            <Button text="Cadastrar dependentes" type="Success" icon="sap-icon://person-placeholder" press="onOpenDialog"/>
+        </headerContent>
+        <content>
+
+            <ComboBox items="{model4>/data}" selectionChange="onDataComboBoxChange">
+                <core:Item text="{model4>departament}"></core:Item>
+            </ComboBox>
+
+            <List headerText="{model4>titleDep}" id="listEmployees" items="{model4>employees}">
+                <StandardListItem title="{model4>name}"></StandardListItem>
+            </List>
+
+            <List items="{model3>/Products}" visible="false">
+                <StandardListItem title="{model3>ProductName}" counter="{model3>UnitsInStock}"></StandardListItem>
+            </List>
+            
+            <form:SimpleForm editable="true" layout="ResponsiveGridLayout" id="form0">
+                <form:content>
+                    <core:Title text="Dados do usuário" id="title0"/>
+                    <Label text="Nome" />
+                    <TextArea value="{model1>/name}" width="100%" />
+
+                    <Label text="Usar sobrenome" />
+                    <Switch state="{model1>/showSecondName}" customTextOn="Sim" customTextOff="Não"/>
+                    
+                    <Label text="Sobrenome" visible="{model1>/showSecondName}"/>
+                    <Input width="100%" visible="{model1>/showSecondName}"/>
+
+                    <Label text="Auxiliar" />
+                    <Input value="{model2>/name}" width="100%" />
+
+                    <Label text="E-mail" id="label1"/>
+                    <Input width="100%" id="input2"/>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>
